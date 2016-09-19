@@ -1,8 +1,15 @@
 class Foobar
 
   def self.baz(a)
-    # Class method
-    # Call with `Foobar.baz`
+    a.map! {|x| 
+    x.to_i
+    }
+    a.map! {|x| 
+    x + 2
+    }
+    a.keep_if {|x| x%2==0 && x <= 10}
+    a = a.uniq
+    a.inject(0){|sum,x| sum + x }
   end
 
   def foo(b)
